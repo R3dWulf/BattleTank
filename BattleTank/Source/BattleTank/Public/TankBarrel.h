@@ -9,12 +9,23 @@
 /**
  * 
  */
-UCLASS()
+UCLASS( meta = (BlueprintSpawnableComponent), hidecategories = ("Collision")) // hidecategories = ("Collision") will hide the Collison drop-down menu in details for tank->Turrent->Barrel component in Tank_BP 
 class BATTLETANK_API UTankBarrel : public UStaticMeshComponent
 {
 	GENERATED_BODY()
 	
 public:
 	void Elevate(float DegreesPerSecond);	
+
+private:
+	UPROPERTY(EditAnywhere, Category = Setup) // Thgis sets a drop-down menu called setup in the details tab in Tank_BP at Tank->Turrent->Barrel
+		float MaxDegreesPerSecond = 20; //sensible default
+
+	UPROPERTY(EditAnywhere, Category = Setup)
+		float MaxElevationDegrees = 40; 
+
+	UPROPERTY(EditAnywhere, Category = Setup)
+		float MinElevationDegrees = 0;
+
 	
 };

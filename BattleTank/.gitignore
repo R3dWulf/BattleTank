@@ -73,3 +73,6 @@ Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+
+#Unreal Free Kite Demo -- 6.34 gb folder size
+Content/KiteDemo/*
