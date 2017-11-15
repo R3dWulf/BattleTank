@@ -3,10 +3,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Tank.h"
+//#include "Tank.h"
 #include "GameFramework/PlayerController.h"
 #include "TankPlayerController.generated.h" //.generated.h files must be the latest include or Unreal complains
 
+
+//forward declaration for Tank.h
+class ATank;
 /**
  * 
  */

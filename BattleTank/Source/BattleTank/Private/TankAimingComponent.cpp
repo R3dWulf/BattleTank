@@ -11,7 +11,7 @@ UTankAimingComponent::UTankAimingComponent()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
-	PrimaryComponentTick.bCanEverTick = true;
+	PrimaryComponentTick.bCanEverTick = true; // Should this really tick???
 
 	// ...
 }
@@ -34,16 +34,26 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 		OutLaunchVelocity,  //FVector & TossVelocity
 		StartLocation,		// FVector StartLocation
 		HitLocation,		// FVector EndLocation
-		LaunchSpeed,		// float TossSpeed
-		ESuggestProjVelocityTraceOption::DoNotTrace // ESuggestProjVelocityTraceOption
+		LaunchSpeed,		// Float TossSpeed
+		false,				// Boolean Favor High Arc
+		0,					// Float Collision Radius
+		0,					// Float OverrideGravityZ
+		ESuggestProjVelocityTraceOption::DoNotTrace //Enum Trace Option
 	);
 
 	if( bHaveAimSolution)
 	{
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal(); //GetSafeNormal gets a copy of the vector if the length is not too small
 		MoveBarrelTowards(AimDirection);
+		auto Time = GetWorld()->GetTimeSeconds();
+		UE_LOG(LogTemp, Warning, TEXT("%f: Aim solution found"), Time);
 	}
 	// If no solution, do nothing
+	else
+	{
+		auto Time = GetWorld()->GetTimeSeconds();
+		UE_LOG(LogTemp, Warning, TEXT("%f:No aim solution found"), Time);
+	}
 }
 
 void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection) 
@@ -54,6 +64,6 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	auto DeltaRotator = AimAsRotator - BarrelRotator;
 
 
-	Barrel->Elevate(5); // TODO remove testing number
+	Barrel->Elevate(DeltaRotator.Pitch); // TODO remove testing number
 
 }

@@ -15,11 +15,12 @@ class BATTLETANK_API UTankBarrel : public UStaticMeshComponent
 	GENERATED_BODY()
 	
 public:
-	void Elevate(float DegreesPerSecond);	
+	// -1 is max downward speed nad +1 is max upward movement
+	void Elevate(float RelativeSpeed);	
 
 private:
 	UPROPERTY(EditAnywhere, Category = Setup) // Thgis sets a drop-down menu called setup in the details tab in Tank_BP at Tank->Turrent->Barrel
-		float MaxDegreesPerSecond = 20; //sensible default
+		float MaxDegreesPerSecond = 5; //sensible default
 
 	UPROPERTY(EditAnywhere, Category = Setup)
 		float MaxElevationDegrees = 40; 
