@@ -37,8 +37,8 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 		LaunchSpeed,		// Float TossSpeed
 		false,				// Boolean Favor High Arc
 		0,					// Float Collision Radius
-		0,					// Float OverrideGravityZ
-		ESuggestProjVelocityTraceOption::DoNotTrace //Enum Trace Option
+		0					// Float OverrideGravityZ
+		,ESuggestProjVelocityTraceOption::DoNotTrace //Enum Trace Option
 	);
 
 	if( bHaveAimSolution)
@@ -64,6 +64,6 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	auto DeltaRotator = AimAsRotator - BarrelRotator;
 
 
-	Barrel->Elevate(DeltaRotator.Pitch); // TODO remove testing number
+	Barrel->Elevate(DeltaRotator.Pitch); 
 
 }
