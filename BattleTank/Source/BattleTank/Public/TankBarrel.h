@@ -20,7 +20,7 @@ public:
 
 private:
 	UPROPERTY(EditAnywhere, Category = Setup) // Thgis sets a drop-down menu called setup in the details tab in Tank_BP at Tank->Turrent->Barrel
-		float MaxDegreesPerSecond = 5; //sensible default
+		float MaxDegreesPerSecond = 10; //sensible default
 
 	UPROPERTY(EditAnywhere, Category = Setup)
 		float MaxElevationDegrees = 40; 
