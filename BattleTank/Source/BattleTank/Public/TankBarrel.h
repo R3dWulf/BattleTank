@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS( meta = (BlueprintSpawnableComponent), hidecategories = ("Collision")) // hidecategories = ("Collision") will hide the Collison drop-down menu in details for tank->Turrent->Barrel component in Tank_BP 
+UCLASS( meta = (BlueprintSpawnableComponent)) //, hidecategories = ("Collision")) // hidecategories = ("Collision") will hide the Collison drop-down menu in details for tank->Turrent->Barrel component in Tank_BP 
 class BATTLETANK_API UTankBarrel : public UStaticMeshComponent
 {
 	GENERATED_BODY()
