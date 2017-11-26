@@ -76,3 +76,8 @@ DerivedDataCache/*
 
 #Unreal Free Kite Demo -- 6.34 gb folder size
 Content/KiteDemo/*
+
+# Changes to .vs/application files can be ignored
+BattleTank/.vs/*
+
+
