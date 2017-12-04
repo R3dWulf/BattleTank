@@ -3,9 +3,10 @@
 
 #include "TankAIController.h"
 #include "Tank.h"
-#include "Engine/World.h"
+//#include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
-//#include "GameFramework/Actor.h" since GetPawn can be used with GameFramework/PlayerController, this isn't needed
+
+//Depends on movement via pathfinding system
 
 void ATankAIController::BeginPlay()
 {
