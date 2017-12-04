@@ -21,5 +21,5 @@ public:
 	
 	// Max force per track in newtons
 	UPROPERTY(EditAnywhere)
-		float TrackMaxDrivingForce = 40000000; // force =  40,000 kl tank weight * 10ms^2 acceleration
+		float TrackMaxDrivingForce = 40000000; // force =  40,000 kl tank weight * 10ms^2 acceleration = 40 million newtons
 };
