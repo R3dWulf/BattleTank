@@ -34,7 +34,6 @@ void  UTankAimingComponent::Initialize(UTankBarrel* BarrelToSet, UTankTurret* Tu
 
 void UTankAimingComponent::TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction)
 {
-	UE_LOG(LogTemp, Warning, TEXT("I'm ticking"))
 	if ((FPlatformTime::Seconds() - LastFireTime) < ReloadTimeInSeconds)
 	{
 		FiringState = EFiringState::Reloading;
