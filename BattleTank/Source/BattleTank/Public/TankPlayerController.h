@@ -8,7 +8,6 @@
 
 
 //forward declaration for Tank.h
-class ATank;
 class UTankAimingComponent;
 /**
  * Responsible for helping the player aim.
@@ -17,10 +16,8 @@ UCLASS()
 class BATTLETANK_API ATankPlayerController : public APlayerController
 {
 	GENERATED_BODY()
-protected: 
-	UFUNCTION(BlueprintCallable, Category = "Setup")
-	ATank* GetControlledTank() const;
 
+protected: 
 	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
 	void FoundAimingComponent(UTankAimingComponent* AimCompRef);
 
