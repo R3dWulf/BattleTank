@@ -21,15 +21,19 @@ public:
 	
 	// Max force per track in newtons
 	UPROPERTY(EditAnywhere)
-		float TrackMaxDrivingForce = 40000000; // force =  40,000 kl tank weight * 10ms^2 acceleration = 40 million newtons
+	float TrackMaxDrivingForce = 40000000.0f; // force =  40,000 kl tank weight * 10ms^2 acceleration = 40 million newtons
 
 private:
 	UTankTrack();
 
 	virtual void BeginPlay() override;
 
-	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
+	void ApplySidewaysForce();
 
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit );
+
+	void DriveTrack();
+
+	float CurrentThrottle = 0;
 };
