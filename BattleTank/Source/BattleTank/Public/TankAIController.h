@@ -6,8 +6,8 @@
 #include "AIController.h"
 #include "TankAIController.generated.h"
 
-//Forword declaration for tank.h
-class ATank;
+//Forword declaration for tank.h go here
+
 
 /**
  * 
