@@ -5,6 +5,7 @@
 #include "TankTurret.h"
 #include "Projectile.h"
 #include "GameFramework/Actor.h"
+#include "Engine.h" // TODO find  UGameplayStatics and remove Engine.h
 #include "Engine/World.h"
 
 
@@ -50,7 +51,7 @@ void UTankAimingComponent::TickComponent(float DeltaTime, enum ELevelTick TickTy
 	}
 }
 
-int UTankAimingComponent::GetRoundsLeft() const
+int32 UTankAimingComponent::GetRoundsLeft() const
 {
 	return RoundsLeft;
 }
