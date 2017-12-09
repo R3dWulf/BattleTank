@@ -2,6 +2,10 @@
 
 #include "Projectile.h"
 #include "Engine.h" 
+//#include "GameFramework/Actor.h"
+//#include "GameFramework/ProjectileMovementComponent.h"
+//#include "PhysicsEngine/RadialForceComponent.h"
+//#include "Particles/Emitter.h"
 
 // Sets default values
 AProjectile::AProjectile()
@@ -24,6 +28,9 @@ AProjectile::AProjectile()
 	ImpactBlast = CreateDefaultSubobject<UParticleSystemComponent>(FName("Impact Blast"));
 	ImpactBlast->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 	ImpactBlast->bAutoActivate = false;
+
+	ExplosionForce = CreateDefaultSubobject<URadialForceComponent>(FName("Explosion"));
+	ExplosionForce->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform); // TODO update to new API
 }
 
 // Called when the game starts or when spawned
@@ -44,5 +51,6 @@ void  AProjectile::OnHit(UPrimitiveComponent*  HitComponent, AActor* OtherActor,
 {
 	LaunchBlast->Deactivate();
 	ImpactBlast->Activate();
+	ExplosionForce->FireImpulse();
 }
 
